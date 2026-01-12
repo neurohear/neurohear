@@ -6,7 +6,7 @@ A deep learning toolkit for hearing aid algorithms.
 
 Our ultimate goal is to **lower the barrier to hearing aid algorithm development**.
 
-Existing open-source hearing aid platforms like **OpenMHA** and **Tympan** are primarily built on traditional digital signal processing (DSP) algorithms. While effective, they lack native support for deep learning approaches that have shown superior performance in speech enhancement tasks.
+Existing open-source hearing aid platforms like **OpenMHA** and **Tympan** are primarily built on traditional digital signal processing (DSP) algorithms. While effective, they lack native support for deep learning approaches that have shown superior performance in speech/audio-related tasks.
 
 **NeuroHear** aims to fill this gap by providing:
 
@@ -30,6 +30,7 @@ Existing open-source hearing aid platforms like **OpenMHA** and **Tympan** are p
 - [x] Asymmetric window STFT (low-latency)
 - [x] ONNX export utilities
 - [ ] Real-time audio I/O
+- [ ] Neural encoder-decoder for low-latency processing
 - [ ] Neural network based denoising
 - [ ] Neural network based feedback suppression
 - [ ] Neural network based hearing compensation
