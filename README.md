@@ -59,6 +59,17 @@ neurohear/
 - **Feedback Suppression**: Acoustic feedback cancellation
 - **Hearing Compensation**: Audiogram-based frequency gain
 
+## Roadmap
+
+- [x] Asymmetric window STFT (low-latency)
+- [x] ONNX export utilities
+- [ ] Real-time audio I/O (pyaudio)
+- [ ] Denoising model (lightweight, <10ms)
+- [ ] Feedback suppression
+- [ ] Hearing compensation (audiogram-based)
+- [ ] Raspberry Pi deployment example
+- [ ] Windows deployment example
+
 ## License
 
 MIT License
