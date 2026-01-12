@@ -1,37 +1,37 @@
-# 快速开始
+# Quick Start
 
-## 基本用法：非对称窗 STFT
+## Basic Usage: Asymmetric Window STFT
 
-NeuroHear 的核心是低延迟的非对称窗 STFT，可以在保持良好频率分辨率的同时实现 <10ms 延迟。
+The core of NeuroHear is the low-latency asymmetric window STFT, which maintains good frequency resolution while achieving <10ms latency.
 
 ```python
 import torch
 from neurohear.core.stft import AsymmetricSTFT
 
-# 创建 STFT 模块
-# 16kHz 采样率，目标延迟 <10ms
+# Create STFT module
+# 16kHz sample rate, target latency <10ms
 stft = AsymmetricSTFT(
     n_fft=256,
-    hop_length=64,              # 4ms 帧移
-    analysis_window_length=256,  # 16ms 分析窗
-    synthesis_window_length=64,  # 4ms 合成窗
+    hop_length=64,              # 4ms frame shift
+    analysis_window_length=256,  # 16ms analysis window
+    synthesis_window_length=64,  # 4ms synthesis window
 )
 
-print(f"算法延迟: {stft.latency_samples} samples ({stft.latency_samples / 16000 * 1000:.1f} ms)")
+print(f"Algorithmic latency: {stft.latency_samples} samples ({stft.latency_samples / 16000 * 1000:.1f} ms)")
 
-# 处理音频
-audio = torch.randn(1, 16000)  # 1秒音频
-spectrum = stft.forward(audio)  # 分析
-reconstructed = stft.inverse(spectrum)  # 合成
+# Process audio
+audio = torch.randn(1, 16000)  # 1 second of audio
+spectrum = stft.forward(audio)  # Analysis
+reconstructed = stft.inverse(spectrum)  # Synthesis
 
-print(f"输入: {audio.shape}")
-print(f"频谱: {spectrum.shape}")
-print(f"重构: {reconstructed.shape}")
+print(f"Input: {audio.shape}")
+print(f"Spectrum: {spectrum.shape}")
+print(f"Reconstructed: {reconstructed.shape}")
 ```
 
-## 流式处理
+## Streaming Processing
 
-对于实时应用，使用 `StreamingSTFT` 进行帧级处理：
+For real-time applications, use `StreamingSTFT` for frame-by-frame processing:
 
 ```python
 from neurohear.core.stft import StreamingSTFT
@@ -41,41 +41,41 @@ streaming_stft = StreamingSTFT(
     hop_length=64,
 )
 
-# 模拟实时处理
+# Simulate real-time processing
 for i in range(100):
-    # 每次处理 hop_length 个样本
+    # Process hop_length samples at a time
     chunk = torch.randn(64)
 
-    # 分析
+    # Analysis
     spectrum = streaming_stft.analyze(chunk)
 
-    # 这里可以对频谱进行处理（降噪等）
+    # Process spectrum here (denoising, etc.)
     # processed_spectrum = your_model(spectrum)
 
-    # 合成
+    # Synthesis
     output = streaming_stft.synthesize(spectrum)
 ```
 
-## ONNX 导出
+## ONNX Export
 
-将模型导出为 ONNX 格式，方便跨平台部署：
+Export models to ONNX format for cross-platform deployment:
 
 ```python
 from neurohear.core.stft import AsymmetricSTFT
 from deploy.onnx_export import export_to_onnx, ONNXWrapper
 
-# 创建模型
+# Create model
 stft = AsymmetricSTFT(n_fft=256, hop_length=64)
 
-# 包装为 ONNX 兼容格式（处理复数输出）
+# Wrap for ONNX compatibility (handles complex output)
 wrapped = ONNXWrapper(stft, handle_complex=True)
 
-# 导出
+# Export
 export_to_onnx(wrapped, "stft.onnx", chunk_size=1024, verify=True)
 ```
 
-## 下一步
+## Next Steps
 
-- 查看 [API 参考](api.md) 了解详细接口
-- 查看 `examples/` 目录获取更多示例
-- 在 [Discussions](https://github.com/neurohear/neurohear/discussions) 提问交流
+- See [API Reference](api.md) for detailed interface documentation
+- Check the `examples/` directory for more examples
+- Ask questions in [Discussions](https://github.com/neurohear/neurohear/discussions)

@@ -1,10 +1,10 @@
-# API 参考
+# API Reference
 
 ## neurohear.core.stft
 
 ### AsymmetricSTFT
 
-低延迟非对称窗 STFT，用于批量处理。
+Low-latency asymmetric window STFT for batch processing.
 
 ```python
 class AsymmetricSTFT(nn.Module):
@@ -22,26 +22,26 @@ class AsymmetricSTFT(nn.Module):
     )
 ```
 
-**参数**:
-- `n_fft`: FFT 大小，必须 >= analysis_window_length
-- `hop_length`: 帧移（samples）
-- `analysis_window_length`: 分析窗长度
-- `synthesis_window_length`: 合成窗长度
-- `analysis_window_type`: 分析窗类型 ("hann", "hamming", "sqrt_hann")
-- `synthesis_window_type`: 合成窗类型
-- `center`: 是否对输入进行填充
-- `causal`: 因果模式（实时处理）
+**Parameters**:
+- `n_fft`: FFT size, must be >= analysis_window_length
+- `hop_length`: Frame shift (samples)
+- `analysis_window_length`: Analysis window length
+- `synthesis_window_length`: Synthesis window length
+- `analysis_window_type`: Analysis window type ("hann", "hamming", "sqrt_hann")
+- `synthesis_window_type`: Synthesis window type
+- `center`: Whether to pad the input
+- `causal`: Causal mode (for real-time processing)
 
-**方法**:
-- `forward(x: Tensor) -> Tensor`: STFT 分析
-- `inverse(X: Tensor) -> Tensor`: ISTFT 合成
-- `latency_samples: int`: 算法延迟（samples）
+**Methods**:
+- `forward(x: Tensor) -> Tensor`: STFT analysis
+- `inverse(X: Tensor) -> Tensor`: ISTFT synthesis
+- `latency_samples: int`: Algorithmic latency (samples)
 
 ---
 
 ### StreamingSTFT
 
-帧级流式 STFT，用于实时处理。
+Frame-level streaming STFT for real-time processing.
 
 ```python
 class StreamingSTFT(nn.Module):
@@ -56,10 +56,10 @@ class StreamingSTFT(nn.Module):
     )
 ```
 
-**方法**:
-- `analyze(chunk: Tensor) -> Tensor`: 分析一帧
-- `synthesize(spectrum: Tensor) -> Tensor`: 合成一帧
-- `reset()`: 重置内部缓冲区
+**Methods**:
+- `analyze(chunk: Tensor) -> Tensor`: Analyze one frame
+- `synthesize(spectrum: Tensor) -> Tensor`: Synthesize one frame
+- `reset()`: Reset internal buffers
 
 ---
 
@@ -67,7 +67,7 @@ class StreamingSTFT(nn.Module):
 
 ### export_to_onnx
 
-导出 PyTorch 模型为 ONNX 格式。
+Export a PyTorch model to ONNX format.
 
 ```python
 def export_to_onnx(
@@ -84,7 +84,7 @@ def export_to_onnx(
 
 ### ONNXWrapper
 
-包装模型使其 ONNX 兼容（处理复数输出等）。
+Wrapper to make models ONNX-compatible (handles complex outputs, etc.).
 
 ```python
 class ONNXWrapper(nn.Module):
@@ -93,10 +93,10 @@ class ONNXWrapper(nn.Module):
 
 ### get_onnx_model_info
 
-获取 ONNX 模型信息。
+Get information about an ONNX model.
 
 ```python
 def get_onnx_model_info(onnx_path: str | Path) -> dict
 ```
 
-返回字典包含: `opset_version`, `inputs`, `outputs`, `ir_version`
+Returns a dictionary containing: `opset_version`, `inputs`, `outputs`, `ir_version`

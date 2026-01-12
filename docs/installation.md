@@ -1,43 +1,43 @@
-# 安装指南
+# Installation
 
-## 环境要求
+## Requirements
 
 - Python >= 3.10
 - PyTorch >= 2.0
 
-## 使用 uv 安装（推荐）
+## Using uv (Recommended)
 
 ```bash
-# 克隆仓库
+# Clone the repository
 git clone https://github.com/neurohear/neurohear.git
 cd neurohear
 
-# 安装依赖
+# Install dependencies
 uv sync
 
-# 安装开发依赖
+# Install development dependencies
 uv sync --extra dev
 ```
 
-## 使用 pip 安装
+## Using pip
 
 ```bash
-# 克隆仓库
+# Clone the repository
 git clone https://github.com/neurohear/neurohear.git
 cd neurohear
 
-# 创建虚拟环境
+# Create virtual environment
 python -m venv .venv
 source .venv/bin/activate  # Linux/macOS
-# 或 .venv\Scripts\activate  # Windows
+# or .venv\Scripts\activate  # Windows
 
-# 安装
+# Install
 pip install -e .
 ```
 
-## 可选依赖
+## Optional Dependencies
 
-### 实时音频（需要 portaudio）
+### Real-time Audio (requires portaudio)
 
 ```bash
 # Ubuntu/Debian
@@ -46,13 +46,13 @@ sudo apt install portaudio19-dev
 # macOS
 brew install portaudio
 
-# 安装 pyaudio
+# Install pyaudio
 uv sync --extra audio
-# 或
+# or
 pip install pyaudio
 ```
 
-## 验证安装
+## Verify Installation
 
 ```python
 import neurohear

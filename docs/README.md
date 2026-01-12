@@ -1,26 +1,26 @@
-# NeuroHear 文档
+# NeuroHear Documentation
 
-欢迎来到 NeuroHear 文档！
+Welcome to the NeuroHear documentation!
 
-## 目录
+## Contents
 
-- [安装指南](installation.md)
-- [快速开始](quickstart.md)
-- [API 参考](api.md)
-- [贡献指南](contributing.md)
+- [Installation](installation.md)
+- [Quick Start](quickstart.md)
+- [API Reference](api.md)
+- [Contributing](contributing.md)
 
-## 关于项目
+## About
 
-NeuroHear 是一个基于深度学习的助听器算法工具包，旨在填补 OpenMHA/Tympan 在深度学习支持方面的空白。
+NeuroHear is a deep learning toolkit for hearing aid algorithms, designed to fill the gap left by traditional DSP-based platforms like OpenMHA and Tympan.
 
-### 核心特性
+### Key Features
 
-- **低延迟设计**: 目标延迟 <10ms，适合实时助听器应用
-- **PyTorch 原生**: 所有算法基于 PyTorch 实现
-- **ONNX 导出**: 支持导出为 ONNX，跨平台部署
-- **模块化架构**: 降噪、反馈抑制、听力补偿等模块可灵活组合
+- **Low-latency design**: Target latency <10ms for real-time hearing aid applications
+- **Native PyTorch**: All algorithms implemented in PyTorch
+- **ONNX export**: Cross-platform deployment support
+- **Modular architecture**: Denoising, feedback suppression, and hearing compensation modules can be flexibly combined
 
-## 社区
+## Community
 
-- [GitHub Discussions](https://github.com/neurohear/neurohear/discussions) - 提问、讨论、分享
-- [Issues](https://github.com/neurohear/neurohear/issues) - Bug 报告、功能请求
+- [GitHub Discussions](https://github.com/neurohear/neurohear/discussions) - Questions, discussions, sharing
+- [Issues](https://github.com/neurohear/neurohear/issues) - Bug reports, feature requests

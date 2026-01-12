@@ -2,60 +2,51 @@
 
 A deep learning toolkit for hearing aid algorithms.
 
-## Features
-
-- Native PyTorch implementation with ONNX export support
-- Low-latency design (<10ms target)
-- Modular architecture for easy algorithm development
-- Cross-platform deployment (Windows, Raspberry Pi)
-
-## Installation
-
-```bash
-# Using uv (recommended)
-git clone https://github.com/neurohear/neurohear.git
-cd neurohear
-uv sync
-
-# Or using pip
-pip install -e .
-```
-
-## Quick Start
-
-```python
-from neurohear.core.stft import AsymmetricSTFT
-
-# Create STFT with asymmetric windows for low latency
-stft = AsymmetricSTFT(
-    n_fft=256,
-    hop_length=64,
-    analysis_window_length=256,
-    synthesis_window_length=64,
-)
-
-# Process audio
-spectrum = stft.forward(audio)
-reconstructed = stft.inverse(spectrum)
-```
-
-## Documentation
-
-- [Installation](docs/installation.md) - Setup guide
-- [Quick Start](docs/quickstart.md) - Get started with examples
-- [API Reference](docs/api.md) - Detailed API documentation
-- [Contributing](docs/contributing.md) - How to contribute
-
 ## Roadmap
 
 - [x] Asymmetric window STFT (low-latency)
 - [x] ONNX export utilities
-- [ ] Real-time audio I/O (pyaudio)
-- [ ] Denoising model (lightweight, <10ms)
-- [ ] Feedback suppression
-- [ ] Hearing compensation (audiogram-based)
+- [ ] Real-time audio I/O
+- [ ] Neural network based denoising
+- [ ] Neural network based feedback suppression
+- [ ] Neural network based hearing compensation
 - [ ] Raspberry Pi deployment example
 - [ ] Windows deployment example
+
+## Why NeuroHear?
+
+Existing open-source hearing aid platforms like **OpenMHA** and **Tympan** are primarily built on traditional digital signal processing (DSP) algorithms. While effective, they lack native support for deep learning approaches that have shown superior performance in speech enhancement tasks.
+
+**NeuroHear** aims to fill this gap by providing:
+
+- **Native deep learning support**: All algorithms are implemented in PyTorch with ONNX export
+- **Low-latency design**: Target latency <10ms, suitable for real-time hearing aid applications
+- **End-to-end neural solutions**: Denoising, feedback suppression, and hearing compensation all powered by neural networks
+- **Easy deployment**: ONNX export enables cross-platform deployment (Windows, Raspberry Pi, etc.)
+
+### Comparison
+
+| Feature | OpenMHA | Tympan | NeuroHear |
+|---------|---------|--------|-----------|
+| Core Framework | C++ DSP | Arduino/C++ | PyTorch |
+| Deep Learning | Limited | Limited | Native |
+| ONNX Export | No | No | Yes |
+| Target Latency | <10ms | <10ms | <10ms |
+| Algorithms | Traditional DSP | Traditional DSP | Neural Network |
+
+## Features
+
+- **Asymmetric Window STFT**: Low-latency frequency transform with different analysis/synthesis windows
+- **Neural Denoising**: Deep learning based noise reduction (coming soon)
+- **Neural Feedback Suppression**: Acoustic feedback cancellation using neural networks (coming soon)
+- **Neural Hearing Compensation**: Audiogram-based frequency compensation powered by neural networks (coming soon)
+
+## Documentation
+
+- [Installation](docs/installation.md)
+- [Quick Start](docs/quickstart.md)
+- [API Reference](docs/api.md)
+- [Contributing](docs/contributing.md)
 
 ## Community
 

@@ -1,67 +1,67 @@
-# 贡献指南
+# Contributing
 
-感谢你对 NeuroHear 的关注！欢迎各种形式的贡献。
+Thank you for your interest in NeuroHear! Contributions of all forms are welcome.
 
-## 如何贡献
+## How to Contribute
 
-### 报告 Bug
+### Report Bugs
 
-在 [Issues](https://github.com/neurohear/neurohear/issues) 提交 Bug 报告，请包含：
-- 问题描述
-- 复现步骤
-- 期望行为
-- 实际行为
-- 环境信息（Python 版本、PyTorch 版本、操作系统）
+Submit bug reports in [Issues](https://github.com/neurohear/neurohear/issues), please include:
+- Problem description
+- Steps to reproduce
+- Expected behavior
+- Actual behavior
+- Environment info (Python version, PyTorch version, OS)
 
-### 功能建议
+### Feature Suggestions
 
-在 [Discussions](https://github.com/neurohear/neurohear/discussions) 讨论新功能想法。
+Discuss new feature ideas in [Discussions](https://github.com/neurohear/neurohear/discussions).
 
-### 提交代码
+### Submit Code
 
-1. Fork 仓库
-2. 创建功能分支：`git checkout -b feature/your-feature`
-3. 提交更改：`git commit -m "Add your feature"`
-4. 推送分支：`git push origin feature/your-feature`
-5. 创建 Pull Request
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Commit changes: `git commit -m "Add your feature"`
+4. Push branch: `git push origin feature/your-feature`
+5. Create a Pull Request
 
-## 开发环境
+## Development Environment
 
 ```bash
-# 克隆你的 fork
+# Clone your fork
 git clone https://github.com/YOUR_USERNAME/neurohear.git
 cd neurohear
 
-# 安装开发依赖
+# Install development dependencies
 uv sync --extra dev
 
-# 运行测试
+# Run tests
 uv run pytest
 
-# 代码格式化
+# Code formatting
 uv run ruff format .
 uv run ruff check --fix .
 ```
 
-## 代码规范
+## Code Standards
 
-- 使用 [ruff](https://github.com/astral-sh/ruff) 进行代码格式化和 lint
-- 遵循 PEP 8 风格指南
-- 为公共 API 编写 docstring
-- 添加适当的类型注解
+- Use [ruff](https://github.com/astral-sh/ruff) for code formatting and linting
+- Follow PEP 8 style guide
+- Write docstrings for public APIs
+- Add appropriate type annotations
 
-## 测试
+## Testing
 
-- 为新功能添加测试
-- 确保所有测试通过：`uv run pytest`
-- 保持测试覆盖率
+- Add tests for new features
+- Ensure all tests pass: `uv run pytest`
+- Maintain test coverage
 
-## 文档
+## Documentation
 
-- 更新相关文档
-- 为新功能添加示例
-- 保持 README 和 docs/ 同步
+- Update relevant documentation
+- Add examples for new features
+- Keep README and docs/ in sync
 
-## 行为准则
+## Code of Conduct
 
-请友善、尊重地与他人交流。我们致力于维护一个开放、包容的社区环境。
+Please communicate with others kindly and respectfully. We are committed to maintaining an open and inclusive community environment.
